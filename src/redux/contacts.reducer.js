@@ -55,6 +55,7 @@ export const addContactThunk = createAsyncThunk(
 
 const initialState = {
   contacts: [],
+  contactsForId: [],
   isLoading: false,
   isError: null,
 };
@@ -69,6 +70,10 @@ const contactsSlice = createSlice({
     deleteContacts(state, { payload }) {
       state.contacts = state.contacts.filter(contact => contact.id !== payload);
     },
+    getContactsForId(state, { payload }) {
+      state.contactsForId = state.contacts.find(contact => contact.id === payload);
+    },
+    
   },
   extraReducers: builder =>
     builder
@@ -95,6 +100,6 @@ const contactsSlice = createSlice({
       ),
 });
 
-export const { addContacts, deleteContacts } = contactsSlice.actions;
+export const { addContacts, deleteContacts,getContactsForId } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;

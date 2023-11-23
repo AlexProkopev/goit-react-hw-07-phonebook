@@ -8,6 +8,8 @@ export const selectLoading = store => store.contactsStore.isLoading;
 
 export const selectErrore = store => store.contactsStore.isError;
 
+export const selectContactsForId = store => store.contactsStore.contactsForId;
+
 export const selectFilteredContacts = createSelector(
   [selectfilter, selectcontatcs],
   (filter, contatcs) =>

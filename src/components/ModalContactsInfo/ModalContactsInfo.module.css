@@ -1,0 +1,64 @@
+.btnOpenModal {
+    background-color: rgba(0, 94, 184, 1)
+    ;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 10px;
+}
+
+.btnOpenModal:hover {
+    background-color: rgb(40, 216, 40);
+  }
+
+  .wrapperModal {
+    width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(245, 245, 245);
+    box-shadow: 2px 2px 5px rgba(0.2, 0.2, 0.2, 0.2);
+  }
+
+  .text {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .span {
+    text-decoration: none;
+    color: #007bff; /* синий цвет, можно настроить по своему вкусу */
+  }
+  
+  .number {
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+   
+  }
+  
+  .closeModal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #dc3545;
+    color: #fff; 
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+    
+  }
+  
+  .closeModal:hover {
+    background-color: #c82333; 
+  }
+  

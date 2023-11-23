@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100;1,300&family=Oswald:wght@200;400&display=swap');
+
 .listContacts {
     list-style: none;
     padding: 0;
   }
-  
-  /* Стили для элементов контактов */
+
   .elemContacts {
     margin: 10px 0;
     padding: 10px;
@@ -13,17 +14,32 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  /* Стили для кнопки "Удалить" */
-  .btnContacts {
-    background-color: blue;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+
+  .contactText {
+    font-family: 'Oswald', sans-serif;
+    color: #666 ;
+  }
+
+  .contactTextNumber {
+    font-family: 'Montserrat', sans-serif;
+
   }
   
+    .btnContacts {
+    background-color: rgba(0, 94, 184, 1);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 10px;
+  }
+
   .btnContacts:hover {
     background-color: #c0392b;
+  }
+
+  .wrapperBtnModal {
+    display: flex;
+    gap: 5px;
   }

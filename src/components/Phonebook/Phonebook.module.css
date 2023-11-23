@@ -1,4 +1,7 @@
 /* Стили для формы */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100;1,300&family=Oswald:wght@200;400&display=swap');
+
 .form {
     padding: 20px;
     max-width: 400px;
@@ -9,6 +12,8 @@
 
 /* Стили для меток */
 .label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
@@ -16,6 +21,7 @@
 
 /* Стили для ввода */
 .input {
+    font-family: 'Montserrat', sans-serif;
     width: 100%; /* Set width to 100% to take the full width of the container */
     box-sizing: border-box; /* Include padding and border in the element's total width */
     padding: 10px;

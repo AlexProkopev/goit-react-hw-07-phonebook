@@ -9,6 +9,7 @@ import {
 } from 'redux/selectors';
 import Loader from 'components/Loader/Loader';
 import Errore from 'components/Errore/Errore';
+import { ModalContactsInfo } from 'components/ModalContactsInfo/ModalContactsInfo';
 
 const Contacts = () => {
   const loader = useSelector(selectLoading);
@@ -16,6 +17,8 @@ const Contacts = () => {
   const getContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
+
+ 
   const hendleDeletedContact = async id => {
     await dispatch(deleteContactThunk(id));
     dispatch(fetchContactsList());
@@ -38,8 +41,10 @@ const Contacts = () => {
       {errore && <Errore />}
       <ul className={css.listContacts}>
         {sortedContacts.map(({ id, name, number }) => (
-          <li className={css.elemContacts} key={id}>
-            {name}: {number}
+          <li className={css.elemContacts} key={id} data-id={id} >
+           <p className={css.contactText}> {name}: <span className={css.contactTextNumber}>{number}</span></p>
+            <div className={css.wrapperBtnModal}>
+            <ModalContactsInfo dataContacts={{ id, name, number }} />
             <button
               className={css.btnContacts}
               type="button"
@@ -49,6 +54,8 @@ const Contacts = () => {
             >
               Deleted
             </button>
+             
+            </div>
           </li>
         ))}
       </ul>

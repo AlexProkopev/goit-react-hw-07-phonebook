@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100;1,300&family=Oswald:wght@200;400&display=swap');
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -8,10 +8,12 @@
   
 
   .title {
+    font-family: 'Oswald', sans-serif;
     color: #333;
   }
   
   .message {
+    font-family: 'Oswald', sans-serif;
     color: #777;
   }
   
