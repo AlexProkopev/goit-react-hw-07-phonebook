@@ -1,53 +1,59 @@
 import React, { useEffect } from 'react';
 import css from './Contacts.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts } from 'redux/contacts.reducer';
-import { contatcs, filter } from 'redux/selectors';
+import { deleteContactThunk, fetchContactsList } from 'redux/contacts.reducer';
+import {
+  selectErrore,
+  selectFilteredContacts,
+  selectLoading,
+} from 'redux/selectors';
+import Loader from 'components/Loader/Loader';
+import Errore from 'components/Errore/Errore';
 
- const Contacts =()=> {
-
-  const contacts = useSelector(contatcs);
-  const filters = useSelector(filter);
+const Contacts = () => {
+  const loader = useSelector(selectLoading);
+  const errore = useSelector(selectErrore);
+  const getContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
-
-  const hendleDeletedContact = id => dispatch(deleteContacts(id))
-   
-
-   const getContacts = () => {
-    const filterLowerCase = filters.toLowerCase();
-
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(filterLowerCase)
-    );
+  const hendleDeletedContact = async id => {
+    await dispatch(deleteContactThunk(id));
+    dispatch(fetchContactsList());
   };
 
+  const sortedContacts = [...getContacts].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+    dispatch(fetchContactsList());
+    setInterval(() => {
+      dispatch(fetchContactsList());
+    }, 300000);
+  }, [dispatch]);
 
-    return (
-      <div>
-        <ul className={css.listContacts}>
-          {getContacts().map(({ id, name, number }) => (
-            <li className={css.elemContacts} key={id}>
-              {name}: {number}{' '}
-              <button
-                className={css.btnContacts}
-                type="button"
-                onClick={() => {
-                  hendleDeletedContact(id);
-                }}
-              >
-                {' '}
-                Deleted{' '}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div>
+      {loader && <Loader />}
+      {errore && <Errore />}
+      <ul className={css.listContacts}>
+        {sortedContacts.map(({ id, name, number }) => (
+          <li className={css.elemContacts} key={id}>
+            {name}: {number}
+            <button
+              className={css.btnContacts}
+              type="button"
+              onClick={() => {
+                hendleDeletedContact(id);
+              }}
+            >
+              Deleted
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-
-export default Contacts
+export default Contacts;

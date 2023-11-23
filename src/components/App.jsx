@@ -5,10 +5,11 @@ import Contacts from './Contacts/Contacts';
 import Filters from './Filters/Filters';
 import css from './App.module.css';
 import { useSelector } from 'react-redux';
-import { contatcs } from 'redux/selectors';
+import {selectErrore, selectcontatcs } from 'redux/selectors';
 
 const App = () => {
-  const contactsRedux = useSelector(contatcs);
+  const contactsRedux = useSelector(selectcontatcs);
+  const errore = useSelector(selectErrore);
 
   return (
     <div className={css.container}>
@@ -17,7 +18,7 @@ const App = () => {
 
       <h2 className={css.title}>Contacts</h2>
       {contactsRedux.length > 0 && <Filters />}
-      {!contactsRedux.length && <h2>Создайте контакт</h2>}
+      {!contactsRedux.length && errore === null && <h2>Создайте контакт</h2>}
       <Contacts />
     </div>
   );

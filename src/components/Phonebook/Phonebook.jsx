@@ -1,15 +1,15 @@
 import css from './Phonebook.module.css';
-import { addContacts } from 'redux/contacts.reducer';
+import { addContactThunk, fetchContactsList } from 'redux/contacts.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { contatcs } from 'redux/selectors';
+import { selectcontatcs } from 'redux/selectors';
 
 const Phonebook = () => {
-  const contactsRed = useSelector(contatcs);
+  const contactsRed = useSelector(selectcontatcs);
   const dispatch = useDispatch();
 
-  const handleAddContact = contacts => {
-
+  const handleAddContact = async contacts => {
+    
     const hasDuplicatesName = contactsRed.some(
       ({ name }) => name.toLowerCase() === contacts.name.toLowerCase()
     );
@@ -29,9 +29,10 @@ const Phonebook = () => {
     const finalContact = {
       id: nanoid(),
       name: contacts.name.charAt(0).toUpperCase() + contacts.name.slice(1),
-      number: contacts.number,
+      number: String(contacts.number),
     };
-    dispatch(addContacts(finalContact));
+    await dispatch(addContactThunk(finalContact));
+    dispatch(fetchContactsList());
   };
 
   const handleSubmitForm = e => {
