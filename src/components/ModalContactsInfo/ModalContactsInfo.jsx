@@ -9,6 +9,7 @@ import {
 } from 'redux/contacts.reducer';
 import { selectLoading } from 'redux/selectors';
 import Loader from 'components/Loader/Loader';
+import { InfoIcon } from 'components/Contacts/InfoIcon/InfoIcon';
 
 Modal.setAppElement('#root');
 
@@ -18,7 +19,7 @@ export const ModalContactsInfo = dataContacts => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const openModal = e => {
+  const openModal = ()=> {
     setModalIsOpen(true);
     dispatch(getContactsForId(id));
   };
@@ -36,7 +37,7 @@ export const ModalContactsInfo = dataContacts => {
   return (
     <div>
       <button onClick={openModal} className={css.btnOpenModal}>
-        Info
+      <InfoIcon/>
       </button>
       <Modal
         className={css.wrapperModal}
@@ -54,7 +55,7 @@ export const ModalContactsInfo = dataContacts => {
             {number}
           </a>
         </p>
-        <button type="button" onClick={hendleDeletedContact}>
+        <button type="button" className={css.btnDeleted} onClick={hendleDeletedContact}>
           Deleted
         </button>
         <button className={css.closeModal} type="button" onClick={closeModal}>

@@ -26,18 +26,27 @@
   }
   
     .btnContacts {
-    background-color: rgba(0, 94, 184, 1);
+    /* background-color: rgba(0, 94, 184, 1);
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.2s;
-    border-radius: 10px;
+    border-radius: 10px; */
+    border:  none;
+    background-color: inherit;
+    color: #080404;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.2s ease-in-out;
+
   }
 
   .btnContacts:hover {
-    background-color: #c0392b;
+       color: #d00303;
   }
+
+  
 
   .wrapperBtnModal {
     display: flex;

@@ -10,6 +10,7 @@ import {
 import Loader from 'components/Loader/Loader';
 import Errore from 'components/Errore/Errore';
 import { ModalContactsInfo } from 'components/ModalContactsInfo/ModalContactsInfo';
+import { TrashIcon } from './TrashIcon/TrashIcon';
 
 const Contacts = () => {
   const loader = useSelector(selectLoading);
@@ -46,13 +47,14 @@ const Contacts = () => {
             <div className={css.wrapperBtnModal}>
             <ModalContactsInfo dataContacts={{ id, name, number }} />
             <button
+            aria-label="This is a tooltip"
               className={css.btnContacts}
               type="button"
               onClick={() => {
                 hendleDeletedContact(id);
               }}
             >
-              Deleted
+              <TrashIcon/>
             </button>
              
             </div>
