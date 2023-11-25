@@ -10,6 +10,11 @@ export const selectErrore = store => store.contactsStore.isError;
 
 export const selectContactsForId = store => store.contactsStore.contactsForId;
 
+export const selectFavorites = store => store.favoritesStore.favorites;
+export const selectFavoritesLoader = store => store.favoritesStore.isLoading;
+export const selectFavoritesErrore = store => store.favoritesStore.isError;
+
+
 export const selectFilteredContacts = createSelector(
   [selectfilter, selectcontatcs],
   (filter, contatcs) =>

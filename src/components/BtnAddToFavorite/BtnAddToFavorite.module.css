@@ -1,0 +1,15 @@
+.btnFavorites {
+    border:  none;
+    background-color: inherit;
+    color: rgb(213, 125, 62);
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.2s ease-in-out;
+    
+  }
+
+  .btnFavorites:hover {
+color: rgb(183, 92, 28);
+transform: rotate(360deg);
+
+  }

@@ -1,0 +1,32 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navWrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .navLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .navLink:hover {
+    background-color: #0056b3;
+  }
+
+  :global .Layout_navLink__lcanr.active {
+    background-color: #0056b3;
+  }

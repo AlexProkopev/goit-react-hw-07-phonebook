@@ -11,6 +11,7 @@ import { selectLoading } from 'redux/selectors';
 import Loader from 'components/Loader/Loader';
 import { InfoIcon } from 'components/Contacts/InfoIcon/InfoIcon';
 
+
 Modal.setAppElement('#root');
 
 export const ModalContactsInfo = dataContacts => {
@@ -39,6 +40,7 @@ export const ModalContactsInfo = dataContacts => {
       <button onClick={openModal} className={css.btnOpenModal}>
       <InfoIcon/>
       </button>
+     
       <Modal
         className={css.wrapperModal}
         isOpen={modalIsOpen}
@@ -62,6 +64,7 @@ export const ModalContactsInfo = dataContacts => {
           Close
         </button>
       </Modal>
+      
     </div>
   );
 };

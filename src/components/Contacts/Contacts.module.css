@@ -1,54 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100;1,300&family=Oswald:wght@200;400&display=swap');
 
 .listContacts {
     list-style: none;
     padding: 0;
   }
 
-  .elemContacts {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .contactText {
-    font-family: 'Oswald', sans-serif;
-    color: #666 ;
-  }
-
-  .contactTextNumber {
-    font-family: 'Montserrat', sans-serif;
-
-  }
-  
-    .btnContacts {
-    /* background-color: rgba(0, 94, 184, 1);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border-radius: 10px; */
-    border:  none;
-    background-color: inherit;
-    color: #080404;
-    cursor: pointer;
-    padding-top: 5px;
-    transition: all 0.2s ease-in-out;
-
-  }
-
-  .btnContacts:hover {
-       color: #d00303;
-  }
-
-  
-
-  .wrapperBtnModal {
-    display: flex;
-    gap: 5px;
-  }
+ 

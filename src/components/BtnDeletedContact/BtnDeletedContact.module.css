@@ -1,0 +1,16 @@
+
+.btnContacts {
+    border:  none;
+    background-color: inherit;
+    color: #080404;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.2s ease-in-out;
+   
+
+  }
+
+  .btnContacts:hover {
+       color: #d00303;
+       transform: rotate(180deg);
+  }
