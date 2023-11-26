@@ -18,6 +18,7 @@ import ContactsList from 'components/ContactsList/ContactsList';
 
 const Contacts = () => {
   const loader = useSelector(selectLoading);
+ 
   const errore = useSelector(selectErrore);
   const dispatch = useDispatch();
   const loaderFavorites = useSelector(selectFavoritesLoader);

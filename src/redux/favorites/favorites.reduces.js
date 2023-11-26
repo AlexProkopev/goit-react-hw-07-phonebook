@@ -9,7 +9,7 @@ export const fetchFavoritesList = createAsyncThunk(
       const { data } = await axios.get(
         'https://655ef6fa879575426b44404b.mockapi.io/favorites/'
       );
-      
+
       return data;
     } catch (err) {
       Notify.failure('Not connected to the server');
@@ -26,7 +26,6 @@ export const deleteFavoritesThunk = createAsyncThunk(
         `https://655ef6fa879575426b44404b.mockapi.io/favorites/${id}`
       );
 
-      
       Notify.success('Contact deleted from favorites');
       return data;
     } catch (err) {
@@ -54,13 +53,10 @@ export const addFavoritesThunk = createAsyncThunk(
   }
 );
 
-
-
-
 const initialState = {
   favorites: [],
   isFavorite: false,
-  favoritesForId:[],
+  favoritesForId: [],
   isLoading: false,
   isError: null,
 };
@@ -71,15 +67,14 @@ const favoritesSlice = createSlice({
   reducers: {
     addFavorites(state, { payload }) {
       state.favorites.push(payload);
-     
     },
-    deleteFavorites(state, { payload }) {
-      state.favorites = state.favorites.filter(contact => contact.id !== payload);
-    },
-    getFavoritesForId(state, { payload }) {
-      state.favoritesForId = state.favorites.find(contact => contact.id === payload);
-    },
-    
+    // deleteFavorites(state, { payload }) {
+    //   state.favorites = state.favorites.filter(contact => contact.id !== payload);
+    // },
+
+    // getFavoritesForId(state, { payload }) {
+    //   state.favoritesForId = state.favorites.find(contact => contact.id === payload);
+    // },
   },
   extraReducers: builder =>
     builder
@@ -87,20 +82,29 @@ const favoritesSlice = createSlice({
         state.isLoading = false;
         state.favorites = payload;
       })
-      .addCase(deleteFavoritesThunk.fulfilled, (state, { payload }) => {
+      .addCase(deleteFavoritesThunk.fulfilled, state => {
+        state.isLoading = false;
+      })
+      .addCase(addFavoritesThunk.fulfilled, state => {
         state.isLoading = false;
       })
       .addMatcher(
-        isAnyOf(fetchFavoritesList.pending, deleteFavoritesThunk.pending),
+        isAnyOf(
+          fetchFavoritesList.pending,
+          deleteFavoritesThunk.pending,
+          addFavoritesThunk.pending
+        ),
         state => {
-          
           state.isLoading = true;
           state.isError = null;
-          
         }
       )
       .addMatcher(
-        isAnyOf(fetchFavoritesList.rejected, deleteFavoritesThunk.rejected),
+        isAnyOf(
+          fetchFavoritesList.rejected,
+          deleteFavoritesThunk.rejected,
+          addFavoritesThunk.rejected
+        ),
         (state, { payload }) => {
           state.isLoading = false;
           state.isError = payload;
@@ -108,6 +112,6 @@ const favoritesSlice = createSlice({
       ),
 });
 
-export const { addFavorites, deleteFavorites,getFavoritesForId } = favoritesSlice.actions;
+export const { addFavorites } = favoritesSlice.actions;
 
 export const favoritesReducer = favoritesSlice.reducer;
