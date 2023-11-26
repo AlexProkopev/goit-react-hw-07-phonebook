@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import "./ModalContactsInfo.css"
+import css from "./ModalContactsInfo.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteContactThunk,
@@ -38,33 +38,33 @@ export const ModalContactsInfo = dataContacts => {
 
   return (
     <div>
-      <button onClick={openModal} className="btnOpenModal">
+      <button onClick={openModal} className={css.btnOpenModal}>
         <InfoIcon />
       </button>
   
       <Transition in={modalIsOpen} timeout={500}>
         {state => (
           <Modal
-            className={`wrapperModal`}
-            portalClassName={`modal-portal ${state}`}
-            overlayClassName="modal-overlay"
+            className={css.wrapperModal}
+            // portalClassName={`modal-portal ${state}`}
+            // overlayClassName="modal-overlay"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="User info"
           >
             {loader && <Loader />}
-            <h2 className={"text"}>
-              Name: <span className={"span"}>{name}</span>
+            <h2 className={css.text}>
+              Name: <span className={css.span}>{name}</span>
             </h2>
-            <p className={"number"}>
-              Phone: <a href={`tel:${number}`} className={"span"}>
+            <p className={css.number}>
+              Phone: <a href={`tel:${number}`} className={css.span}>
                 {number}
               </a>
             </p>
-            <button type="button" className={"btnDeleted"} onClick={hendleDeletedContact}>
+            <button type="button" className={css.btnDeleted} onClick={hendleDeletedContact}>
               Deleted
             </button>
-            <button className="closeModal" type="button" onClick={closeModal}>
+            <button className={css.closeModal} type="button" onClick={closeModal}>
               Close
             </button>
           </Modal>
