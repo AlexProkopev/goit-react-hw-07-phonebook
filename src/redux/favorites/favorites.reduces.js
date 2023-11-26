@@ -48,6 +48,7 @@ export const addFavoritesThunk = createAsyncThunk(
       return data;
     } catch (err) {
       Notify.failure('Contact not added successfully');
+      console.log(err.message);
       return thunkApi.rejectWithValue(err.message);
     }
   }
@@ -68,9 +69,9 @@ const favoritesSlice = createSlice({
     addFavorites(state, { payload }) {
       state.favorites.push(payload);
     },
-    // deleteFavorites(state, { payload }) {
-    //   state.favorites = state.favorites.filter(contact => contact.id !== payload);
-    // },
+    deleteFavorites(state, { payload }) {
+      state.favorites = state.favorites.filter(contact => contact.id !== payload);
+    },
 
     // getFavoritesForId(state, { payload }) {
     //   state.favoritesForId = state.favorites.find(contact => contact.id === payload);
@@ -112,6 +113,6 @@ const favoritesSlice = createSlice({
       ),
 });
 
-export const { addFavorites } = favoritesSlice.actions;
+export const { addFavorites,deleteFavorites } = favoritesSlice.actions;
 
 export const favoritesReducer = favoritesSlice.reducer;
