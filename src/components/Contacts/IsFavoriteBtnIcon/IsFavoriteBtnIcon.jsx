@@ -1,7 +1,7 @@
 // icon:favorite | Unicons https://iconscout.com/unicons | Iconscout
 import * as React from "react";
 
-export const IsFavoriteBtn =() => {
+export const IsFavoriteBtnIcon =() => {
   return (
     <svg
       viewBox="0 0 24 24"

@@ -29,7 +29,7 @@ export const deleteFavoritesThunk = createAsyncThunk(
       Notify.success('Contact deleted from favorites');
       return data;
     } catch (err) {
-      Notify.failure('Contact not deleted successfully');
+      Notify.failure('Contact not deleted successfully, try again after reloading page');
 
       return thunkApi.rejectWithValue(err.message);
     }

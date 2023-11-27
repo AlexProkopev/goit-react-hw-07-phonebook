@@ -11,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/phonebook" element={<PhonebookPages />} />
+        <Route path="*" element={<PhonebookPages />} />
       </Routes>
    </Layout>
   );
