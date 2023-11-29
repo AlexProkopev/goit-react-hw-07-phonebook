@@ -1,16 +1,16 @@
 .elemContacts {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f7f7f7;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
+    background-color: rgba(102, 90, 182, 0.5);
   }
 
   .contactText {
     font-family: 'Oswald', sans-serif;
-    color: #666 ;
+    color: #ffffff ;
   }
 
   .contactTextNumber {
@@ -19,7 +19,13 @@
   }
 
   .wrappertoBtn {
-    border: 1px solid tomato;
+    width: 60px;
+    display: flex;
+  gap: 10px;
+  }
+
+  .wrappertoBtn:first-child {
+    padding-top: 1px;
   }
 
   

@@ -40,7 +40,7 @@ dispatch(fetchFavoritesList());
             <p className={css.contactText} >
               {name} : <span className={css.contactTextNumber}>{number}</span>
             </p>
-            <div className="wrappertoBtn">
+            <div className={css.wrappertoBtn}>
             <a type="button" href={`tel:${number}`} className={css.btnCall} onClick={hadlerCallBtn}><PhoneLogo/></a>
             <button type="button" className={css.btnDeleteFavorite} onClick={()=> handleDeletedDavorite(id)}><TrashIcon/></button>
             

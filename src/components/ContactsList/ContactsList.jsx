@@ -14,7 +14,8 @@ import {
   deleteFavoritesThunk,
 } from 'redux/favorites/favorites.reduces';
 import { Notify } from 'notiflix';
-import BtnFavorite from 'components/BtnFavorite/BtnFavorite';
+
+import BtnComponent from 'components/BtnComponent/BtnComponent';
 
 
 
@@ -75,13 +76,13 @@ const ContactsList = () => {
             </p>
             <div className={css.wrapperBtnModal}>
               {isFavorite ? (
-                <BtnFavorite hendlerClick={handleClickFavoritesDelete}>
+                <BtnComponent hendlerClick={handleClickFavoritesDelete} classNames={"btnFavorites"}>
                   <IsFavoriteBtnIcon />
-                </BtnFavorite>
+                </BtnComponent>
               ) : (
-                <BtnFavorite  hendlerClick={handleClickFavorites}>
+                <BtnComponent  hendlerClick={handleClickFavorites} classNames={"btnFavorites"}>
                   <FavoriteIcon />
-                </BtnFavorite>
+                </BtnComponent>
               )}
               <ModalContactsInfo dataContacts={{ id, name, number }} />
               <BtnDeletedContact idCurrent={id} />

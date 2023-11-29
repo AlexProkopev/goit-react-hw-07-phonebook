@@ -2,7 +2,7 @@
 .btnContacts {
     border:  none;
     background-color: inherit;
-    color: #080404;
+    color: rgb(255, 45, 45);
     cursor: pointer;
     padding-top: 5px;
     transition: all 0.2s ease-in-out;

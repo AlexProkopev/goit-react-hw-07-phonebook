@@ -21,7 +21,7 @@ const PhonebookPages = () => {
   <h2 className={css.title}>
     Contacts <ContactsIcon />
   </h2>
-  {contactsRedux.length > 0 && <Filters />}
+  <div className={css.filterContainer}>{contactsRedux.length > 0 && <Filters />}</div>
   {!contactsRedux.length && errore === null && <h2>Создайте контакт</h2>}
   <Contacts /></>
   )

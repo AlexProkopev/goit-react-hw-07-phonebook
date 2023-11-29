@@ -20,7 +20,7 @@ const Filters = ({value}) => {
       name="filter"
       value={value}
       onChange={handleFilterContact} 
-      placeholder="Поиск по имени, начните писать..."
+      placeholder="Поиск по имени, начните что-то писать..."
     />
   );
 };

@@ -50,6 +50,7 @@ export const ModalContactsInfo = dataContacts => {
             // overlayClassName="modal-overlay"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
+            overlayClassName={css.modalOverlay}
             contentLabel="User info"
           >
             {loader && <Loader />}
